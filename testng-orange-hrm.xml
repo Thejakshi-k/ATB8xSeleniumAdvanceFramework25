@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="ATB8xSeleniumAdvanceFramework25">
         <classes>
-            <class name="org.example.tests.vwoLogin.pageObjectModel_TestCase.TestVWOLogin_POM">
+            <class name="org.example.tests.OrangeHR.TestOrangeHR_POM">
 
             </class>
         </classes>

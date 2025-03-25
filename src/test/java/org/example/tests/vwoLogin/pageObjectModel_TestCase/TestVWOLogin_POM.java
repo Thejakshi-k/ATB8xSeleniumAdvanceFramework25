@@ -1,6 +1,4 @@
-package org.example.tests.vwoLogin;
-
-//package org.example.tests.vwoLogin.pageObjectModel_TestCase;
+package org.example.tests.vwoLogin.pageObjectModel_TestCase;
 import org.example.base.CommonToAllTest;
 import org.example.driver.DriverManager;
 import org.example.pages.pageObjectModel.vwo.DashboardPage_POM;
