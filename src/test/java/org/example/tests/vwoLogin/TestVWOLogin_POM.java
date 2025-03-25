@@ -1,29 +1,51 @@
 package org.example.tests.vwoLogin;
 
+//package org.example.tests.vwoLogin.pageObjectModel_TestCase;
+import org.example.base.CommonToAllTest;
+import org.example.driver.DriverManager;
+import org.example.pages.pageObjectModel.vwo.DashboardPage_POM;
+import org.example.pages.pageObjectModel.vwo.LoginPage_POM;
+import org.example.utils.PropertiesReader;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
-import org.example.pages.pageObjectModel.vwo.LoginPage_POM;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.*;
 
-public class TestVWOLogin_POM {
+public class TestVWOLogin_POM extends CommonToAllTest {
 
-//  @Owner("TEJU")
-//  @Description("Verify that invalid creds give error message");
+
+    @Owner("PRAMOD")
+    @Description("Verify that invalid creds give error message")
     @Test
+    public void testLoginNegativeVWO() {
 
-    public void testLoginNegativeVWO(){
+        LoginPage_POM loginPagePom = new LoginPage_POM(DriverManager.getDriver());
+        String error_msg = loginPagePom.loginToVWOLoginInvalidCreds(PropertiesReader.readKey("invalid_username"),PropertiesReader.readKey("invalid_password"));
 
-        WebDriver driver=new EdgeDriver();
-        driver.get("https://app.vwo.com");
-        LoginPage_POM loginPagePom=new LoginPage_POM(driver);
-        String error_message=loginPagePom.loginToVWOLoginInvalidcreds("admin","123");
-        assertThat(error_message).isNotBlank().isNotEmpty().isNotEmpty();
-        Assert.assertEquals(error_message,"Your email, password, IP address or location did not match");
-        driver.quit();
+        assertThat(error_msg).isNotBlank().isNotNull().isNotEmpty();
+        Assert.assertEquals(error_msg, PropertiesReader.readKey("error_message"));
+
 
     }
+
+    @Owner("PRAMOD")
+    @Description("Verify that invalid creds give error message")
+    @Test
+    public void testPositive() {
+
+        LoginPage_POM loginPagePom = new LoginPage_POM(DriverManager.getDriver());
+        loginPagePom.loginToVWOLoginValidCreds(PropertiesReader.readKey("username"),PropertiesReader.readKey("password"));
+
+        DashboardPage_POM dashboardPagePom = new DashboardPage_POM(DriverManager.getDriver());
+        String loggedInUserName = dashboardPagePom.loggedInUserName();
+
+        assertThat(loggedInUserName).isNotBlank().isNotNull().isNotEmpty();
+        Assert.assertEquals(loggedInUserName, PropertiesReader.readKey("expected_username"));
+
+
+    }
+
+
+
 }

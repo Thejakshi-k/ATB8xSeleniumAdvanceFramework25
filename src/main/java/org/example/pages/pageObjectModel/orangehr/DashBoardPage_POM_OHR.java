@@ -1,21 +1,23 @@
-package org.example.pages.pageObjectModel.vwo;
+package org.example.pages.pageObjectModel.orangehr;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.example.base.CommonToAllPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DashboardPage_POM extends CommonToAllPage {
+public class DashBoardPage_POM_OHR  extends CommonToAllPage{
 
     WebDriver driver;
 
-    public DashboardPage_POM(WebDriver driver) {
+    public DashBoardPage_POM_OHR(WebDriver driver) {
         this.driver = driver;
     }
 
 
 
     // Page Locators
-    By userNameOnDashboard = By.cssSelector("[data-qa=\"lufexuloga\"]");
+    By userNameOnDashboard = By.xpath("//h6[normalize-space()='PIM']");
 
 
     // Page Actions
@@ -23,6 +25,4 @@ public class DashboardPage_POM extends CommonToAllPage {
         presenceOfElement(userNameOnDashboard);
         return getElement(userNameOnDashboard).getText();
     }
-
-
 }
