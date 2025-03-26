@@ -15,7 +15,7 @@ public class DashboardPage_POM extends CommonToAllPage {
 
 
     // Page Locators
-    By userNameOnDashboard = By.cssSelector("[data-qa=\"lufexuloga\"]");
+    By userNameOnDashboard = By.cssSelector("[data-qa=\"cotirufajo\"]");
 
 
     // Page Actions
