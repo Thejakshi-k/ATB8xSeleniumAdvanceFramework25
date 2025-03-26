@@ -107,7 +107,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.9.9</version>  <!-- Updated version -->
+          <version>3.11.0</version>  <!-- Updated version -->
           <configuration>
             <source>24</source>
             <target>24</target>
